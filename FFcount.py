@@ -16,7 +16,8 @@ __status__ = "Prototype"
 
 # Twitter keys and accounts to analyse. Place them in config folder
 KEYFILE = "config/mykey.json"
-accounts_file = open("config/accounts.txt", "r")
+accountsFileTxt = input ('Please type the name of the .txt file to analyse: ')
+accounts_file = open(accountsFileTxt, "r")
 accounts = accounts_file.read().split(',')
 
 # Load the twitter keys
@@ -46,7 +47,7 @@ def main():
 	# Generate a new file to save the data
 	list = open ("Accounts_info" + ".csv", 'w')
 	list.write("Account,Followers,Friends,Date" +' \n')
-	
+
 	# Get number of folowers and friends
 	for account in accounts:
 		user_followers = api.get_user(screen_name=account)
